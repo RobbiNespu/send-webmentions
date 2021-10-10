@@ -1,7 +1,7 @@
 name: Send webmentions for new blog posts
 on:
   rss:
-    url: http://feeds.jamesmead.org/floehopper-blog
+    url: https://robbinespu.gitlab.io/indieweb/index.xml
     config:
       logLevel: debug
       limit: 1
