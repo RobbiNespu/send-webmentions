@@ -10,10 +10,10 @@ jobs:
     name: Send webmentions
     runs-on: ubuntu-latest
     steps:
-      - name: 'Send webmentions for RSS item link'
+      - name: "Send webmentions for RSS item link"
         uses: actionsflow/axios@v1
         with:
           url: https://webmention.app/check/
-          method: 'POST'
+          method: "POST"
           params: '{ "url": "${{on.rss.outputs.link}}", "token": "${{ secrets.WM_TOKEN }}" }'
           is_debug: true
