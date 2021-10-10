@@ -9,6 +9,7 @@ jobs:
   send_webmentions:
     name: Send webmentions
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: "Send webmentions for RSS item link"
         uses: actionsflow/axios@v1
