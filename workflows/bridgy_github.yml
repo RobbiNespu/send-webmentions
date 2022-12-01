@@ -1,7 +1,7 @@
 name: Auto-publish
 on:
   rss:
-    url: https://robbinespu.gitlab.io/indieweb/index.xml
+    url: https://journal.robbi.my/index.xml
     config:
       logLevel: debug
       limit: 1
