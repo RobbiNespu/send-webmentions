@@ -16,7 +16,7 @@ on:
         required: false
         default: "true"
   schedule:
-    - cron: "0 */1 * * *" # every hour
+    - cron: "0 */4 * * *" # every 4 hour
     #- cron: "*/15 * * * *" # every 15 minutes
   push:
     branches:
