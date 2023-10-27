@@ -1,0 +1,33 @@
+name: Send Webmentions
+
+on:
+  schedule:
+    # Set the schedule as needed (e.g., every hour)
+    - cron: '0 * * * *'
+
+jobs:
+  send-webmentions:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Install dependencies
+      run: npm install # or yarn install if you use Yarn
+
+    - name: Send Webmentions
+      run: node send-webmentions.js # Replace with your script
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "Send webmentions"
+        git push
