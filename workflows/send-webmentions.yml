@@ -23,8 +23,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install webmention-cli
-        run: npm i -g @remy/webmention-cli
+      - name: Install webmention
+        run: npm i -g @remy/webmention
 
       - name: Send webmentions
         run: webmention "${{on.rss.outputs.link}}" --send --debug
