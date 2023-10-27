@@ -26,10 +26,3 @@ jobs:
     - name: Send Webmentions
       run: npx webmention https://journal.robbi.my/index.xml --limit 10 --send --debug
 
-    - name: Commit and push changes
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add .
-        git commit -m "Send webmentions"
-        git push
