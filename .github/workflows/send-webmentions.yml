@@ -20,13 +20,11 @@ jobs:
 
     - name: Install dependencies
       run: |
-        npm install xml2js # Install xml2js library
-        npm install webmention
-        npm install node-fetch
+        npm install @remy/webmention
       # or use 'yarn add xml2js' if you use Yarn
 
     - name: Send Webmentions
-      run: node send-webmentions.js # Replace with your script
+      run: npx webmention https://journal.robbi.my/index.xml --limit 1 --send 
 
     - name: Commit and push changes
       run: |
