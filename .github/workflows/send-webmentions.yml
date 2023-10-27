@@ -1,6 +1,7 @@
 name: Send Webmentions
 
 on:
+  workflow_dispatch:
   schedule:
     # Set the schedule as needed (e.g., every hour)
     - cron: '0 * * * *'
