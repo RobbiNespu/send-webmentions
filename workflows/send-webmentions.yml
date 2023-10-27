@@ -27,10 +27,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
+          cache: 'npm'  # Cache npm dependencies
 
       - name: Install webmention-cli
-        run: npm i @remy/webmention
+        run: npm i -g @remy/webmention-cli
 
       - name: Send webmentions
-        run: npx webmention "${{on.rss.outputs.link}}" --send --debug
+        run: webmention "${{on.rss.outputs.link}}" --send --debug
  
