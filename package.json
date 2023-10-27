@@ -26,5 +26,8 @@
   },
   "bugs": {
     "url": "https://github.com/actionsflow/actionsflow-workflow-default/issues"
+  },
+  "dependencies": {
+    "@remy/webmention": "^1.4.5"
   }
 }
