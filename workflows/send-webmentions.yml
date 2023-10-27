@@ -29,7 +29,7 @@ jobs:
           node-version: 14
 
       - name: Install webmention-cli
-        run: npm install -g webmention
+        run: npm i @remy/webmention
 
       - name: Send webmentions
         run: npx webmention "${{on.rss.outputs.link}}" --send --debug
