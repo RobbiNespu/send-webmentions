@@ -28,15 +28,23 @@ jobs:
     name: Run
     steps:
       - uses: actions/checkout@v2
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      
       - name: Run Actionsflow
         uses: actionsflow/actionsflow-action@v1
         with:
           args: build --include ${{ github.event.inputs.include }} -f ${{github.event.inputs.force}} --verbose ${{github.event.inputs.verbose}}
           json-secrets: ${{ toJSON(secrets) }}
           json-github: ${{ toJSON(github) }}
+      
       - name: Setup act
         uses: actionsflow/setup-act-for-actionsflow@v1
         with:
           version: 0.2.17
+      
       - name: Run act
         run: act --workflows ./dist/workflows --secret-file ./dist/.secrets --eventpath ./dist/event.json --env-file ./dist/.env -P ubuntu-latest=actionsflow/act-environment:v1 -P ubuntu-18.04=actionsflow/act-environment:v1
