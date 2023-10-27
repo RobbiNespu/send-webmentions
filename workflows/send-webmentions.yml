@@ -12,11 +12,25 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
     
-      - name: "Send webmentions for RSS item link"
-        uses: actionsflow/axios@v1
+      # - name: "Send webmentions for RSS item link"
+      #   uses: actionsflow/axios@v1
+      #   with:
+      #     url: https://www.webmention.app/check/
+      #     method: "POST"
+      #     params: '{ "url": "${{on.rss.outputs.link}}", "token": "${{ secrets.WM_TOKEN }}" }'
+      #     is_debug: true
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          url: https://www.webmention.app/check/
-          method: "POST"
-          params: '{ "url": "${{on.rss.outputs.link}}", "token": "${{ secrets.WM_TOKEN }}" }'
-          is_debug: true
+          node-version: 14
+
+      - name: Install webmention-cli
+        run: npm install -g webmention
+
+      - name: Send webmentions
+        run: npx webmention "${{on.rss.outputs.link}}" --send --debug
  
