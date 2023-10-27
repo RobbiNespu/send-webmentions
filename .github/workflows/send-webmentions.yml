@@ -24,7 +24,7 @@ jobs:
       # or use 'yarn add xml2js' if you use Yarn
 
     - name: Send Webmentions
-      run: npx webmention https://journal.robbi.my/index.xml --limit 1 --send 
+      run: npx webmention https://journal.robbi.my/index.xml --limit 10 --send --debug
 
     - name: Commit and push changes
       run: |
