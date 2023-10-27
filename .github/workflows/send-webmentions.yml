@@ -3,7 +3,6 @@ name: Send Webmentions
 on:
   workflow_dispatch:
   schedule:
-    # Set the schedule as needed (e.g., every hour)
     - cron: '0 * * * *'
 
 jobs:
@@ -20,7 +19,11 @@ jobs:
         node-version: 14
 
     - name: Install dependencies
-      run: npm install # or yarn install if you use Yarn
+      run: |
+        npm install xml2js # Install xml2js library
+        npm install webmention
+        npm install node-fetch
+      # or use 'yarn add xml2js' if you use Yarn
 
     - name: Send Webmentions
       run: node send-webmentions.js # Replace with your script
