@@ -27,7 +27,7 @@ jobs:
     timeout-minutes: 10
     name: Run
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       
       - name: Set up Node.js
         uses: actions/setup-node@v2
